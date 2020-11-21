@@ -1,52 +1,94 @@
 package librarysystem;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class TEST {
 
     public static void main(String[] args) {
-        int option = 0;
-        Scanner select = new Scanner(System.in);
+        ArrayList<Book> books = new ArrayList<Book>();
+        ArrayList<Person> users = new ArrayList<Person>();
+        ArrayList<Shelf> shelfs = new ArrayList<Shelf>();
+        String menu = "Option\n"
+                + "1. Add shelf\n"
+                + "2. Add book\n"
+                + "3. Display books\n"
+                + "4. Add user\n"
+                + "5. Display user\n"
+                + "6. Exit";
+        Scanner input = new Scanner(System.in);
+        int Option = 0;
+        //test 
+        Shelf testShelf = new Shelf("Recommend", 1);
+        shelfs.add(testShelf);
+        books.add(new Book("Game of Throne", "War", 500, 157812, shelfs.get(0)));
+
         do {
-            System.out.println("Library");
-            System.out.println("1 testPerson");
-            System.out.println("2 bye");
-            System.out.print("Enter Option: \n");
-            option = select.nextInt();
+            System.out.println(menu);
+            System.out.print("Option: ");
+            Option = input.nextInt();
+            input.nextLine();
+            switch (Option) {
+                case 1:
+                    System.out.println("Input shelf");
+                    System.out.println("Enter shelf name :");
+                    String shelfName = input.nextLine();
+                    System.out.println("Enter shelf number:");
+                    int shelfNumber = input.nextInt();
+                    Shelf shelf = new Shelf(shelfName, shelfNumber);
+                    shelfs.add(shelf);
+                    break;
 
-            if (option == 1) {
-                testPerson();
+                case 2:
+                    System.out.println("Input new book");
+                    System.out.println("Enter book name :");
+                    String bookName = input.nextLine();
+                    System.out.println("Enter book category :");
+                    String bookCategory = input.nextLine();
+                    System.out.println("Enter book page :");
+                    int bookPage = input.nextInt();
+                    System.out.println("Enter book ISBN :");
+                    int ISBN = input.nextInt();
+                    System.out.println("Select a shelf by typing the number:");
+                    for (int i = 0; i < shelfs.size(); i++) {
+                        System.out.println(i + 1 + " " + shelfs.get(i).getshelfName());
+                    }
+                    shelfNumber = input.nextInt();
+                    books.add(new Book(bookName, bookCategory, bookPage, ISBN, shelfs.get(shelfNumber - 1)));
+                    break;
+
+                case 3:
+                    System.out.println("DISPLAY SHOWS Selected");
+                    System.out.println("-------------------------\n");
+                    for (int i = 0; i < books.size(); i++) {
+                        int bookNumber = i+1;
+                        System.out.println("Book Number: " + bookNumber);
+                        System.out.println(books.get(i));
+                        System.out.println("\n");
+                    }
+                    System.out.println("End of Show List.\n");
+                    break;
+                case 4:
+                    System.out.println("Add user");
+                    System.out.println("Enter ID number :");
+                    long id = input.nextLong();
+                    input.nextLine(); 
+                    System.out.println("Enter Firstname :");
+                    String firstName = input.nextLine();     
+                    System.out.println("Enter Lastname :");               
+                    String lastName = input.nextLine();
+                    Person user = new Person(id, firstName, lastName);
+                    users.add(user);
+                    break;
+
+                case 5:
+                    for (int i = 0; i < users.size(); i++) {
+                        int userCount = i+1;
+                        System.out.println("Number of User: " + userCount);
+                        System.out.println(users.get(i));
+                    }
+                    }
             }
-            if (option == 2) {
-                System.out.println("bye");
-            }
-        
+            while (Option != 6);
         }
-        while(option !=2);
-        }
-    
 
-    public static void testPerson() {
-        Person a = new Person(0, "firstName", "lastName");
-        System.out.println(a + "\n");
-        a.setFirstName("John");
-        a.setLastName("Davis");
-        a.setIdCard(1);
-        System.out.println(a + "\n");
     }
-
-    public static void testBook() {
-        Book a = new Book("bookName", Category.MYSTERY, 0, 0);
-        System.out.println(a + "\n");
-        a.setCategory(Category.DYSTOPIAN);
-        a.setBookISBN(15151);
-        a.setBookName("GameOfThones");
-        a.setBookPage(200);
-        System.out.println(a + "\n");
-    }
-
-
-
-
-    
-}

@@ -12,33 +12,22 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public long getIdCard() {
+    public long getId() {
         return id;
-    }
-
-    public void setIdCard(long idCard) {
-        this.id = idCard;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
     }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    
 
     @Override
     public String toString() {
-        return firstName + "\nID: "+ id + "\nFirstname: " + firstName + "\nLastname: " + lastName;
+        return "\nID: "+ id + "\nFirstname: " + firstName + "\nLastname: " + lastName;
     }
 
 }
