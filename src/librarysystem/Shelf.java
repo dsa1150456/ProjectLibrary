@@ -9,10 +9,10 @@ public class Shelf {
         this.shelfNumber = shelfNumber;
         this.shelfName = shelfName;
     }
+    
     public String getshelfName() {
         return shelfName;
     }
-
 
 @Override
     public String toString() {

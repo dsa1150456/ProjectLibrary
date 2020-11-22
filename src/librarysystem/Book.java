@@ -36,7 +36,7 @@ public class Book {
         return borrowed;
     }
     public boolean returned() {
-        return borrowed = false;  
+        return borrowed == false;  
     }
 
 
