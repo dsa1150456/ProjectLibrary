@@ -8,13 +8,16 @@ public class TEST {
         ArrayList<Book> books = new ArrayList<Book>();
         ArrayList<Person> users = new ArrayList<Person>();
         ArrayList<Shelf> shelfs = new ArrayList<Shelf>();
-        String menu = "Option\n"
+        Library a = new Library(books);
+        a.printOpeningHours();
+        String menu
+                = "Option\n"
                 + "1. Add shelf\n"
                 + "2. Add book\n"
                 + "3. Display books\n"
                 + "4. Add user\n"
                 + "5. Display user\n"
-                + "6. Exit";
+                + "6. Borrow Book";
         Scanner input = new Scanner(System.in);
         int Option = 0;
         //test 
@@ -60,7 +63,7 @@ public class TEST {
                     System.out.println("DISPLAY SHOWS Selected");
                     System.out.println("-------------------------\n");
                     for (int i = 0; i < books.size(); i++) {
-                        int bookNumber = i+1;
+                        int bookNumber = i + 1;
                         System.out.println("Book Number: " + bookNumber);
                         System.out.println(books.get(i));
                         System.out.println("\n");
@@ -71,10 +74,10 @@ public class TEST {
                     System.out.println("Add user");
                     System.out.println("Enter ID number :");
                     long id = input.nextLong();
-                    input.nextLine(); 
+                    input.nextLine();
                     System.out.println("Enter Firstname :");
-                    String firstName = input.nextLine();     
-                    System.out.println("Enter Lastname :");               
+                    String firstName = input.nextLine();
+                    System.out.println("Enter Lastname :");
                     String lastName = input.nextLine();
                     Person user = new Person(id, firstName, lastName);
                     users.add(user);
@@ -82,13 +85,20 @@ public class TEST {
 
                 case 5:
                     for (int i = 0; i < users.size(); i++) {
-                        int userCount = i+1;
+                        int userCount = i + 1;
                         System.out.println("Number of User: " + userCount);
                         System.out.println(users.get(i));
                     }
-                    }
+                case 6:
+                    System.out.println("List of Available Books ");
+                    a.printAvailableBooks();
+                    a.borrowBook("Game of Throne");
+                    a.returnBook("Game of Throne");
+                    a.borrowBook("Game of Throne");
+                    a.borrowBook("Game of Throne");
+                    a.borrowBook("b");
             }
-            while (Option != 6);
-        }
-
+        } while (Option != 7);
     }
+
+}
