@@ -5,7 +5,7 @@ public class Book {
     private String bookName, bookCategory;
     private int bookPage, ISBN;
     private Shelf shelfs;
-    boolean borrowed ;
+    boolean borrowed;
 
     public Book(String bookName, String bookCategory, int bookPage, int ISBN, Shelf shelfs) {
 
@@ -36,9 +36,8 @@ public class Book {
         return borrowed;
     }
     public boolean returned() {
-        return borrowed == false;  
+        return borrowed = false;  
     }
-
 
     @Override
     public String toString() {
