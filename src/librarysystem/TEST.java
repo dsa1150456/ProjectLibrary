@@ -17,7 +17,8 @@ public class TEST {
                 + "3. Display books\n"
                 + "4. Add user\n"
                 + "5. Display user\n"
-                + "6. Borrow Book";
+                + "6. Borrow Book\n"
+                + "7. Exit";
         Scanner input = new Scanner(System.in);
         int Option = 0;
         //test 
@@ -88,7 +89,9 @@ public class TEST {
                         int userCount = i + 1;
                         System.out.println("Number of User: " + userCount);
                         System.out.println(users.get(i));
-                    }
+                    }   
+                        System.out.println("End of User List.\n");
+                        break;
                 case 6:
                     System.out.println("List of Available Books ");
                     a.printAvailableBooks();
@@ -97,8 +100,8 @@ public class TEST {
                     a.borrowBook("Game of Throne");
                     a.borrowBook("Game of Throne");
                     a.borrowBook("b");
+                    break;
             }
         } while (Option != 7);
     }
-
 }

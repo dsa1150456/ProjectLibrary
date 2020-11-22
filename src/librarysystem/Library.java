@@ -35,7 +35,7 @@ public class Library {
                 if (found == 0) {
                     found = 1;
                 }
-                if (!b.isBorrowed()) {
+                if (b.isBorrowed() == false) {
                     b.borrowed = true;
                     found = 2;
                     break;
