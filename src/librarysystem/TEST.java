@@ -60,7 +60,7 @@ public class TEST {
                     break;
 
                 case 3:
-                    System.out.println("DISPLAY SHOWS Selected");
+                    System.out.println("DISPLAY Books Selected");
                     System.out.println("-------------------------\n");
                     for (int i = 0; i < books.size(); i++) {
                         int bookNumber = i + 1;
@@ -68,7 +68,7 @@ public class TEST {
                         System.out.println(books.get(i));
                         System.out.println("\n");
                     }
-                    System.out.println("End of Show List.\n");
+                    System.out.println("End of Books List.\n");
                     break;
                 case 4:
                     System.out.println("Add user");

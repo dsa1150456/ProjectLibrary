@@ -18,7 +18,7 @@ public class Library {
     public void printAvailableBooks() {
         boolean bookPresent = false;
         for (Book b : books) {
-            if (!b.isBorrowed()) {
+            if (b.isBorrowed() == false) {
                 System.out.println(b.getBookName());
                 bookPresent = true;
             }
@@ -34,8 +34,9 @@ public class Library {
             if (b.getBookName().equals(title)) {
                 if (found == 0) {
                     found = 1;
+                    
                 }
-                if (!b.isBorrowed()) {
+                if (b.isBorrowed() == false) {
                     b.borrowed = true;
                     found = 2;
                     break;
