@@ -3,8 +3,7 @@ package librarysystem;
 public class Person {
 
     private long id;
-    private String firstName;
-    private String lastName;
+    private String firstName,lastName;
 
     public Person(long idCard, String firstName, String lastName) {
         this.id = idCard;

@@ -103,7 +103,8 @@ public class TEST {
                     a.returnBook("Game of Throne");
                     a.borrowBook("Game of Throne");
                     a.borrowBook("Game of Throne");
-                    a.borrowBook("b");
+                    a.borrowBook("booo");
+                    a.returnBook("s");
                     break;
             }
         } while (Option != 7);

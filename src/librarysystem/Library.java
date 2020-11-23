@@ -64,6 +64,10 @@ public class Library {
         if (found) {
             System.out.println("You successfully returned " + title);
         }
+        else{
+            System.out.println("Invalid book name");
+        }
+        
     }
 
 }
