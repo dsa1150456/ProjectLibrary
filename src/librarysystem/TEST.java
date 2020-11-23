@@ -17,7 +17,8 @@ public class TEST {
                 + "3. Display books\n"
                 + "4. Add user\n"
                 + "5. Display user\n"
-                + "6. Borrow Book";
+                + "6. Borrow Book\n"
+                + "7. Exit\n";
         Scanner input = new Scanner(System.in);
         int Option = 0;
         //test 
@@ -32,7 +33,7 @@ public class TEST {
             input.nextLine();
             switch (Option) {
                 case 1:
-                    System.out.println("Input shelf");
+                    System.out.println("---- Add new shelf ----");
                     System.out.println("Enter shelf name :");
                     String shelfName = input.nextLine();
                     System.out.println("Enter shelf number:");
@@ -42,7 +43,7 @@ public class TEST {
                     break;
 
                 case 2:
-                    System.out.println("Input new book");
+                    System.out.println(" ---- add new book ----");
                     System.out.println("Enter book name :");
                     String bookName = input.nextLine();
                     System.out.println("Enter book category :");
@@ -60,8 +61,7 @@ public class TEST {
                     break;
 
                 case 3:
-                    System.out.println("DISPLAY Books Selected");
-                    System.out.println("-------------------------\n");
+                    System.out.println("---- Display Books ----");
                     for (int i = 0; i < books.size(); i++) {
                         int bookNumber = i + 1;
                         System.out.println("Book Number: " + bookNumber);
@@ -71,7 +71,7 @@ public class TEST {
                     System.out.println("End of Books List.\n");
                     break;
                 case 4:
-                    System.out.println("Add user");
+                    System.out.println("---- Add user ----");
                     System.out.println("Enter ID number :");
                     long id = input.nextLong();
                     input.nextLine();
@@ -84,19 +84,27 @@ public class TEST {
                     break;
 
                 case 5:
+                    System.out.println("---- Display user ----");
                     for (int i = 0; i < users.size(); i++) {
                         int userCount = i + 1;
                         System.out.println("Number of User: " + userCount);
                         System.out.println(users.get(i));
                     }
+                    if (users.size()<1){
+                        System.out.println("There is no users");
+                    }
+                    
+                    
+                    break;
                 case 6:
-                    System.out.println("List of Available Books ");
+                    System.out.println("---- List of Available Books ----");
                     a.printAvailableBooks();
                     a.borrowBook("Game of Throne");
                     a.returnBook("Game of Throne");
                     a.borrowBook("Game of Throne");
                     a.borrowBook("Game of Throne");
                     a.borrowBook("b");
+                    break;
             }
         } while (Option != 7);
     }
